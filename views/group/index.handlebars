@@ -1,0 +1,101 @@
+ <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">On Campus</a>
+        <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+          </li>
+        </ul>
+      </nav>
+    
+      <div class="container-fluid">
+          <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+              <div class="sidebar-sticky">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Favorite Contacts</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                      <span data-feather="plus-circle"></span>
+                    </a>
+                  </h6>
+                <ul class="nav flex-column">
+                    {{#each members}}
+                    <li class="nav-item" >
+                        <img id="portrait" src="./images/portrait01.png" alt="">
+                        <a class="nav-link active" href="#" style="display:inline-block">
+                        <span data-feather="home"></span>
+                        {{this.name}} <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                   {{/each}}
+                </ul>
+    
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                  <span>Group Chat</span>
+                  <a class="d-flex align-items-center text-muted" href="#">
+                    <span data-feather="plus-circle"></span>
+                  </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    {{#each groups}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/{{this._id}}">
+                        <span data-feather="file-text"></span>
+                        {{this.name}}
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+              </div>
+            </nav>
+  
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h2>Campus Map</h2>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                  <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary">Zoom In<button>
+                    <button class="btn btn-sm btn-outline-secondary">Zoom Out</button>
+                  </div>
+                  <button class="btn btn-sm btn-outline-secondary">
+                    Share Location
+                  </button>
+                </div>
+                
+              </div>
+              <div style = "height: 80%;"id="map"></div>
+              <h2>Let's Chat</h2>
+              <div id="messages"></div>
+              <br></br>
+              <br></br>
+              <br></br>
+            <div>
+                
+              <form action=""> 
+                  <div id = "icon">
+                      <span>
+                        <i class="fas fa-laugh"></i>
+                        </span>
+                      <span>
+                        <i class="fas fa-image"></i>
+                      </span>
+                      <span>
+                        <i class="fas fa-camera"></i>
+                      </span>
+                      <span>
+                        <i class="fas fa-microphone-alt"></i>
+                      </span>
+                      <span>
+                      <i class="fas fa-video"></i>
+                      </span>
+                      <span>
+                        <i class="fas fa-map-marker-alt"></i>
+                      </span>
+                    </div>    
+                <input class="form-control" type="text" id="m" autocomplete="off" style="width: 90%; display: inline-block"/>
+                <button type="submit" class="btn btn-info">Send</button>
+              </form>
+            </div>              
+            </main>
+          </div>
+        </div>
