@@ -58,10 +58,10 @@ router.get("/inbox",async(req,res) => {
             layout: 'main.handlebars', err: e});
     }
 });
-router.get("/blank",async(req,res) => {
+router.get("/dash",async(req,res) => {
     try{
         let groups = await grouplist();
-        res.render("group/blank",{groups,layout: 'main.handlebars' });
+        res.render("group/dash",{groups,layout: 'main.handlebars' });
     }catch(e){
         res.status(400).render("group/error", { 
             layout: 'main.handlebars', err: e});
