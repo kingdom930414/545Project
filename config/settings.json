@@ -1,6 +1,6 @@
 {
     "mongoConfig": {
-      "serverUrl": "mongodb://localhost:27017/",
+      "serverUrl": "mongodb+srv://db:db@cluster0-tdlgh.mongodb.net/test",
       "database": "Campus"
     }
   }

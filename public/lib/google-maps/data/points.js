@@ -42,9 +42,9 @@ var LocsA = [
 
 var LocsB = [
     {
-        lat: 52.1,
-        lon: 11.3,
-        title: 'Title A2',
+        lat: 40.744499,
+        lon: -74.032898,
+        title: 'Xiao Zhao',
         html: [
             '<h3>Content A2</h3>',
             '<p>Lorem Ipsum..</p>'
@@ -52,9 +52,9 @@ var LocsB = [
         zoom: 8
     },
     {
-        lat: 51.2,
-        lon: 22.2,
-        title: 'Title B2',
+        lat: 40.745466,
+        lon: -74.026278,
+        title: 'Huajie Xu',
         html: [
             '<h3>Content B2</h3>',
             '<p>Lorem Ipsum..</p>'
@@ -62,9 +62,9 @@ var LocsB = [
         zoom: 8
     },
     {
-        lat: 49.4,
-        lon: 35.9,
-        title: 'Title C2',
+        lat: 40.741207,
+        lon: -74.029154,
+        title: 'Huixiang Xu',
         html: [
             '<h3>Content C2</h3>',
             '<p>Lorem Ipsum..</p>'
@@ -72,9 +72,9 @@ var LocsB = [
         zoom: 4
     },
     {
-        lat: 47.8,
-        lon: 15.6,
-        title: 'Title D2',
+        lat: 40.748344,
+        lon: -74.026428,
+        title: 'Yuting Shao',
         html: [
             '<h3>Content D2</h3>',
             '<p>Lorem Ipsum..</p>'
