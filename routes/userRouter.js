@@ -70,12 +70,12 @@ router.post("/addMessage",async(req,res) => {
         console.log(req.body)
         let message = req.body.message;
         console.log(message)
-        let user_id = req.body.id
+        let groupId = req.body.id
         let messages = await groupData.addMessageToGroup(id,message);
         const members = await groupData.getGroupMember(id);
         const groups = await groupData.getAllGroup();
         const location = await groupData.getLocation(id);
-        res.render("group/index", { members,groups,messages,user_id,location,
+        res.render("group/index", { members,groups,messages,groupId,location,
             layout: 'main.handlebars' });
     }catch(e){
         res.status(400).render("group/error", { 
@@ -84,7 +84,8 @@ router.post("/addMessage",async(req,res) => {
 });
 router.get("/:id", async (req, res) => {
     try {
-        // console.log(req.params)
+        console.log(req.body)
+        console.log(req.params)
         let groupId = req.params.id;
         const members = await groupData.getGroupMember(groupId);
         const groups = await groupData.getAllGroup();
