@@ -54,7 +54,8 @@ router.get("/addMessage",async(req,res) => {
         let messages = await groupData.addMessageToGroup(id,message);
         const members = await groupData.getGroupMember(id);
         const groups = await groupData.getAllGroup();
-        res.render("group/index", { members,groups,messages,user_id,
+        const location = await groupData.getLocation(id);
+        res.render("group/index", { members,groups,messages,user_id,location,
             layout: 'main.handlebars' });
     }catch(e){
         res.status(400).render("group/error", { 
@@ -73,7 +74,8 @@ router.post("/addMessage",async(req,res) => {
         let messages = await groupData.addMessageToGroup(id,message);
         const members = await groupData.getGroupMember(id);
         const groups = await groupData.getAllGroup();
-        res.render("group/index", { members,groups,messages,user_id,
+        const location = await groupData.getLocation(id);
+        res.render("group/index", { members,groups,messages,user_id,location,
             layout: 'main.handlebars' });
     }catch(e){
         res.status(400).render("group/error", { 
@@ -82,19 +84,37 @@ router.post("/addMessage",async(req,res) => {
 });
 router.get("/:id", async (req, res) => {
     try {
-        console.log(req.params)
-        let user_id = req.params.id;
-        const members = await groupData.getGroupMember(req.params.id);
+        // console.log(req.params)
+        let groupId = req.params.id;
+        const members = await groupData.getGroupMember(groupId);
         const groups = await groupData.getAllGroup();
-        const messages = await groupData.getMessages(req.params.id);
+        const messages = await groupData.getMessages(groupId);
+        const curGroup = await groupData.getGroupById(groupId);
+        const location = await groupData.getLocation(groupId);
         console.log("messages "+messages)
-        res.render("group/index", { members,groups,messages,user_id,
+        res.render("group/index", { members,groups,messages,groupId,curGroup,location,
             layout: 'main.handlebars' });
     } catch (e) {
         res.status(400).render("group/error", { 
             layout: 'main.handlebars', err: e});
     }
 });
+
+  router.post("/addLocation/:id", async (req, res)=>{
+    const {lat,lng,id} = req.body;
+    console.log("in add location");
+    let location = await groupData.addLocation(lat,lng,id);
+    console.log("add location successfully")
+  });
+
+  router.get("/getLocation/:id",async (req,res)=>{
+    console.log("in get location");
+    console.log(req.params)
+    let list = await groupData.getLocation(req.params.id);
+    console.log(list)
+    res.json(list);
+  });
+
 router.get("join/:id/", async (req, res) => {
     try {
         console.log("join a group")

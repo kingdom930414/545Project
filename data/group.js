@@ -8,10 +8,12 @@ module.exports={
         const groupCollection = await group();
         let member = [];
         let messages = [];
+        let location = [];
         let newGroup = {
             name,
             member,
-            messages
+            messages,
+            location
         }
         console.log("create a new group")
         const createGroup = await groupCollection.insertOne(newGroup);
@@ -49,7 +51,7 @@ module.exports={
         console.log(group_id)
         const updateInfo = await groupCollection.updateOne({_id:group_id},newMessage);
         if (updateInfo.modifiedCount === 0) {
-            throw new Error("could not update likes of this animal .");
+            throw "fail to update";
         }
         let newGroup = await groupCollection.findOne({_id:group_id});
         console.log(newGroup)
@@ -63,7 +65,7 @@ module.exports={
         return res.messages;
     },
     async getGroupMember(id){
-        console.log("In get group member")
+        // console.log("In get group member")
         // console.log("id "+id)
         let group ;
         try{
@@ -80,5 +82,34 @@ module.exports={
         }
         
         return groupMember;
+    },
+    async addLocation(lat,lng,id){
+        if(!lat||!lng||!id) throw "Not a valid info";
+        let newLocation = {
+            $push:{
+                location: {
+                    lat,
+                    lng
+                }
+            }
+        }
+        const groupCollection = await group();
+        let group_id = ObjectId(id)
+        console.log(group_id)
+        const updateInfo = await groupCollection.updateOne({_id:group_id},newLocation);
+        if (updateInfo.modifiedCount === 0) {
+            throw "fail to update";
+        }
+        let newGroup = await groupCollection.findOne({_id:group_id});
+        console.log(newGroup)
+        return newGroup.location;
+    },
+    async getLocation(id){
+        if(!id) throw "not a valid info";
+        const groupCollection = await group();
+        let groupid = ObjectId(id);
+        console.log(groupid)
+        let res = await groupCollection.findOne({_id:groupid});
+        return res.location;
     }
 }
