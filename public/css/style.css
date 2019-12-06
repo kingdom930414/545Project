@@ -1,7 +1,16 @@
 
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
-
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color:black;
+    opacity: 0.5;
+    z-index: 1;
+  }
 /* BASIC THEME CONFIGURATION */
 body {
     color: #797979;

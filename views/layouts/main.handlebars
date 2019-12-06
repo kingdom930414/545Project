@@ -1,27 +1,106 @@
+{{!--
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
-    
+
     <title>Socket.IO chat</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="https://kit.fontawesome.com/32b0047838.js" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-oqwnk2ksa_mvMXm5AaqEgjhQWHhuxM&callback=initMap"async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-oqwnk2ksa_mvMXm5AaqEgjhQWHhuxM&callback=initMap"
+        async defer></script>
     <script src="/public/map.js"></script>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/public/site.css">
 </head>
+
 <body>
     <main>
         {{{body}}}
     </main>
-   
+
 </body>
+
+</html> --}}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://kit.fontawesome.com/32b0047838.js" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-oqwnk2ksa_mvMXm5AaqEgjhQWHhuxM&callback=initMap"
+        async defer></script>
+    <script src="/public/map.js"></script>
+    <meta charset="utf-8">
+    <!-- Favicons -->
+    <link href="public/img/favicon.png" rel="icon">
+    <link href="public/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="public/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="public/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="public/lib/gritter/css/jquery.gritter.css">
+    <!-- Custom styles for this template -->
+    <link href="public/css/style.css" rel="stylesheet">
+    <link href="public/css/style-responsive.css" rel="stylesheet">
+    
+   <title>Oncampus</title>
+
+
+
+
+    <style type="text/css">
+        .jqstooltip {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: block;
+            visibility: hidden;
+            background: rgb(0, 0, 0) transparent;
+            background-color: rgba(0, 0, 0, 0.6);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+            color: white;
+            font: 10px arial, san serif;
+            text-align: left;
+            white-space: nowrap;
+            border: 1px solid white;
+            z-index: 10000;
+        }
+
+        .jqsfield {
+            color: white;
+            padding: 5px 5px 8px 5px;
+            font: 10px arial, san serif;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        {{{body}}}
+    </main>
+</body>
+
 </html>
