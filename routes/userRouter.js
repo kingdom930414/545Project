@@ -30,9 +30,11 @@ router.post("/signup",async(req,res) => {
         let email = req.body.email;
         console.log("The user name is "+name+"  and email is  "+email);
         let user = await userData.createUser(name,email);
+        let user_id = user._id;
+        console.log("user id is "+user_id)
         if(user !== null){
             const groups = await groupData.getAllGroup();
-            res.render("group/joinGroup",{groups,user,layout: 'main.handlebars' });
+            res.render("group/joinGroup",{groups,user_id,layout: 'main.handlebars' });
         }else{
             throw "Fail to sign up.";
         }
@@ -41,14 +43,52 @@ router.post("/signup",async(req,res) => {
             layout: 'main.handlebars', err: e});
     }
 });
+router.get("/addMessage",async(req,res) => {
+    try{ 
+        console.log("In get add messages")
+        let id= req.body.id;
+        console.log(req.body)
+        let message = req.body.message;
+        console.log(message)
+        let user_id = req.body.id
+        let messages = await groupData.addMessageToGroup(id,message);
+        const members = await groupData.getGroupMember(id);
+        const groups = await groupData.getAllGroup();
+        res.render("group/index", { members,groups,messages,user_id,
+            layout: 'main.handlebars' });
+    }catch(e){
+        res.status(400).render("group/error", { 
+            layout: 'main.handlebars', err: e});
+    }
+});
 
+router.post("/addMessage",async(req,res) => {
+    try{ 
+        console.log("In post add messages")
+        let id= req.body.id;
+        console.log(req.body)
+        let message = req.body.message;
+        console.log(message)
+        let user_id = req.body.id
+        let messages = await groupData.addMessageToGroup(id,message);
+        const members = await groupData.getGroupMember(id);
+        const groups = await groupData.getAllGroup();
+        res.render("group/index", { members,groups,messages,user_id,
+            layout: 'main.handlebars' });
+    }catch(e){
+        res.status(400).render("group/error", { 
+            layout: 'main.handlebars', err: e});
+    }
+});
 router.get("/:id", async (req, res) => {
     try {
-        console.log(req.body)
         console.log(req.params)
+        let user_id = req.params.id;
         const members = await groupData.getGroupMember(req.params.id);
         const groups = await groupData.getAllGroup();
-        res.render("group/index", { members,groups,
+        const messages = await groupData.getMessages(req.params.id);
+        console.log("messages "+messages)
+        res.render("group/index", { members,groups,messages,user_id,
             layout: 'main.handlebars' });
     } catch (e) {
         res.status(400).render("group/error", { 
