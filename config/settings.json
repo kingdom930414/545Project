@@ -1,6 +1,6 @@
 {
     "mongoConfig": {
-      "serverUrl": "mongodb+srv://db:db@cluster0-tdlgh.mongodb.net/test",
+      "serverUrl": "mongodb+srv://db:db@cluster0-tdlgh.mongodb.net/test?retryWrites=true",
       "database": "Campus"
     }
   }
