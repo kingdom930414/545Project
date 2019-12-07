@@ -108,7 +108,7 @@ module.exports={
         if(!id) throw "not a valid info";
         const groupCollection = await group();
         let groupid = ObjectId(id);
-        console.log(groupid)
+        // console.log(groupid)
         let res = await groupCollection.findOne({_id:groupid});
         return res.location;
     }

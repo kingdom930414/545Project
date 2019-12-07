@@ -110,10 +110,10 @@ router.get("/:id", async (req, res) => {
 
   router.get("/getLocation/:id",async (req,res)=>{
     console.log("in get location");
-    console.log(req.params)
+    // console.log(req.params)
     let list = await groupData.getLocation(req.params.id);
-    console.log(list)
-    res.json(list);
+    // console.log(list)
+    res.json(JSON.stringify(list));
   });
 
 router.get("join/:id/", async (req, res) => {
